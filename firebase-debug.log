@@ -1,0 +1,58 @@
+[debug] [2024-04-24T16:38:51.139Z] ----------------------------------------------------------------------
+[debug] [2024-04-24T16:38:51.141Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\harsh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-04-24T16:38:51.141Z] CLI Version:   13.7.1
+[debug] [2024-04-24T16:38:51.141Z] Platform:      win32
+[debug] [2024-04-24T16:38:51.141Z] Node Version:  v20.12.0
+[debug] [2024-04-24T16:38:51.142Z] Time:          Wed Apr 24 2024 22:08:51 GMT+0530 (India Standard Time)
+[debug] [2024-04-24T16:38:51.142Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-24T16:38:51.189Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-24T16:38:51.189Z] > authorizing via signed-in user (harshit1tomer@gmail.com)
+[debug] [2024-04-24T16:38:51.189Z] [iam] checking project startcareerdev for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-04-24T16:38:51.191Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/startcareerdev:testIamPermissions [none]
+[debug] [2024-04-24T16:38:51.191Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/startcareerdev:testIamPermissions x-goog-quota-user=projects/startcareerdev
+[debug] [2024-04-24T16:38:51.191Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/startcareerdev:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-04-24T16:38:52.717Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/startcareerdev:testIamPermissions 200
+[debug] [2024-04-24T16:38:52.717Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/startcareerdev:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-04-24T16:38:52.718Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/startcareerdev [none]
+[debug] [2024-04-24T16:38:53.363Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/startcareerdev 200
+[debug] [2024-04-24T16:38:53.364Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/startcareerdev {"projectId":"startcareerdev","projectNumber":"464325951812","displayName":"startcareerdev","name":"projects/startcareerdev","resources":{"hostingSite":"startcareerdev","storageBucket":"startcareerdev.appspot.com","locationId":"asia-south1"},"state":"ACTIVE","etag":"1_000ebed9-c55e-4dc4-b4d4-789cf6f44c6e"}
+[debug] [2024-04-24T16:38:55.193Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites pageToken=&pageSize=10
+[debug] [2024-04-24T16:38:56.365Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites 200
+[debug] [2024-04-24T16:38:56.365Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites {"sites":[{"name":"projects/startcareerdev/sites/startcareerdev","defaultUrl":"https://startcareerdev.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-04-24T16:38:56.366Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites 
+[debug] [2024-04-24T16:38:56.810Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites 200
+[debug] [2024-04-24T16:38:56.810Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites {"sites":[{"name":"projects/startcareerdev/sites/startcareerdev","defaultUrl":"https://startcareerdev.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-04-24T16:38:56.811Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/startcareerdev/webApps/-/config [none]
+[debug] [2024-04-24T16:38:58.260Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/startcareerdev/webApps/-/config 200
+[debug] [2024-04-24T16:38:58.260Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/startcareerdev/webApps/-/config {"projectId":"startcareerdev","appId":"1:464325951812:web:e5f70caa3ef12e8f341711","storageBucket":"startcareerdev.appspot.com","locationId":"asia-south1","apiKey":"AIzaSyCHq6mPirDjAZGpwNEelCwesgncQOqGXxM","authDomain":"startcareerdev.firebaseapp.com","messagingSenderId":"464325951812","measurementId":"G-84B8Q9TTQN"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-04-24T16:39:02.496Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites/startcareerdev [none]
+[debug] [2024-04-24T16:39:03.445Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites/startcareerdev 200
+[debug] [2024-04-24T16:39:03.445Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/startcareerdev/sites/startcareerdev {"name":"projects/startcareerdev/sites/startcareerdev","defaultUrl":"https://startcareerdev.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.2
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info] uncaughtException [Error: EPERM: operation not permitted, open 'C:\Harshit\hello\.next\trace'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\Harshit\\hello\\.next\\trace'
+}
+
+[debug] [2024-04-24T16:39:10.469Z] Error: ENOENT: no such file or directory, open 'C:\Harshit\hello\.next\server\middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
