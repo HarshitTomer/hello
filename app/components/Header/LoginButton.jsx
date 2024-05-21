@@ -19,14 +19,14 @@ export default function LoginButton() {
 
     if (user) {
         return <div className="flex gap-4 items-center">
-            <button
+            {/* <button
                 onClick={() => {
                     handleLogout();
                 }}
                 className="flex items-center gap-3 bg-black text-white px-4 py-2 rounded-full"
             >
                 Logout
-            </button>
+            </button> */}
             <Link href='/admin'>
                 <div className="flex gap-4 rounded-xl bg-blue-100 px-3 py-2">
                     <img className="object-cover h-12 w-12 rounded-full" src={user?.photoURL} alt="" />

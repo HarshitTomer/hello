@@ -57,7 +57,7 @@ export default function PostFormContextProvider({ children }) {
         try {
             await deletePost(id);
             setIsDone(true);
-            router.push('/admin/posts');
+            router.push('/admin/jobs');
         } catch (error) {
             setError(error?.message)
         }

@@ -1,20 +1,20 @@
 import { getAuthor } from "@/lib/firebase/author/read_server";
 import { getCategory } from "@/lib/firebase/category/read_server";
-import { getAllPosts } from "@/lib/firebase/post/read_server"
+import { getAlljobs } from "@/lib/firebase/post/read_server"
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
 export default async function PostListView() {
-    const posts = await getAllPosts();
-    if (!posts) {
+    const jobs = await getAlljobs();
+    if (!jobs) {
         return <div>
-            <h3>Posts Not Available!</h3>
+            <h3>jobs Not Available!</h3>
         </div>
     }
     return <section className="p-10">
         <div className="grid grid-cols-4 gap-5">
-            {posts?.map((post, key) => {
+            {jobs?.map((post, key) => {
                 return <PostCard post={post} key={key} />
             })}
         </div>
@@ -22,7 +22,7 @@ export default async function PostListView() {
 }
 
 export function PostCard({ post }) {
-    return <Link href={`/posts/${post?.id}`}>
+    return <Link href={`/jobs/${post?.id}`}>
         <div className="flex flex-col gap-3 p-5 rounded">
             <div className="relative">
                 <div className="absolute flex justify-end w-full p-3">

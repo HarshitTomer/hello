@@ -9,8 +9,8 @@ export default function Sidebar() {
             icon: <Gauge />,
         },
         {
-            name: 'Posts',
-            link: '/admin/posts',
+            name: 'jobs',
+            link: '/admin/jobs',
             icon: <LayoutList />,
         },
         {

@@ -17,6 +17,8 @@ export default function Page() {
         handleCreate,
         handleUpdate,
         handleDelete,
+        image,
+        setImage,
         fetchData,
     } = useCategoryForm();
 
@@ -74,7 +76,25 @@ export default function Page() {
                         required
                     />
                 </div>
-               
+                {data?.iconURL && <div>
+                    <img className="h-40" src={data?.iconURL} alt="" />
+                </div>}
+                {image && <div>
+                    <img className="h-40" src={URL.createObjectURL(image)} alt="" />
+                </div>}
+                <div className="flex flex-col gap-2">
+                    <label className="text-sm text-gray-500">Image  </label>
+                    <input
+                        className="px-4 py-2 rounded-full border bg-gray-50"
+                        placeholder="Enter Category Slug"
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                            e.preventDefault();
+                            setImage(e.target.files[0]);
+                        }}
+                    />
+                </div>
 
                 {error && <p className="text-red-500 text-sm">{error}</p>}
 

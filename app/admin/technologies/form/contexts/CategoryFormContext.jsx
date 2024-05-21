@@ -14,6 +14,7 @@ export default function CategoryFormContextProvider({ children }) {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [isDone, setIsDone] = useState(false);
+    const [image, setImage] = useState(null);
 
     const handleData = (key, value) => {
         setIsDone(false)
@@ -24,12 +25,11 @@ export default function CategoryFormContextProvider({ children }) {
     }
 
     const handleCreate = async () => {
-        console.log("here")
         setError(null)
         setIsLoading(true)
         setIsDone(false)
         try {
-            await createNewCategory({ data: data});
+            await createNewCategory({ data: data, image: image });
             setIsDone(true)
         } catch (error) {
             setError(error?.message)
@@ -42,7 +42,7 @@ export default function CategoryFormContextProvider({ children }) {
         setIsLoading(true)
         setIsDone(false)
         try {
-            await updateCategory({ data: data});
+            await updateCategory({ data: data, image: image });
             setIsDone(true)
         } catch (error) {
             setError(error?.message)
@@ -93,7 +93,8 @@ export default function CategoryFormContextProvider({ children }) {
             handleCreate,
             handleUpdate,
             handleDelete,
-
+            image,
+            setImage,
             fetchData,
         }}
     >{children}</CategoryFormContext.Provider>
