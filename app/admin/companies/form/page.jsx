@@ -37,7 +37,7 @@ export default function Page() {
             {!updateAuthorId && <div className="flex">
                 <h3 className="text-white bg-green-500 px-4 py-2 rounded-full text-xs font-bold">Create</h3>
             </div>}
-            <h1 className="font-bold">Author | Form</h1>
+            <h1 className="font-bold">Company | Form</h1>
         </div>
         <section className="flex">
             <form
@@ -51,10 +51,10 @@ export default function Page() {
                 }}
                 className="flex flex-col gap-2 bg-blue-50 rounded-xl p-7">
                 <div className="flex flex-col gap-2">
-                    <label className="text-sm text-gray-500">Author Name <span className="text-red-500">*</span> </label>
+                    <label className="text-sm text-gray-500">Company Name <span className="text-red-500">*</span> </label>
                     <input
                         className="px-4 py-2 rounded-full border bg-gray-50"
-                        placeholder="Enter Author Name"
+                        placeholder="Enter Company Name"
                         type="text"
                         onChange={(e) => {
                             handleData('name', e.target.value)
@@ -64,10 +64,10 @@ export default function Page() {
                     />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="text-sm text-gray-500">Author Email <span className="text-red-500">*</span> </label>
+                    <label className="text-sm text-gray-500">Company Email <span className="text-red-500">*</span> </label>
                     <input
                         className="px-4 py-2 rounded-full border bg-gray-50"
-                        placeholder="Enter Author Email"
+                        placeholder="Enter Company Email"
                         type="email"
                         onChange={(e) => {
                             handleData('email', e.target.value)

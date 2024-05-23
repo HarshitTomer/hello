@@ -18,7 +18,7 @@ export const createNewCategory = async ({ data }) => {
     });
 }
 
-export const updateCategory = async ({ data, image }) => {
+export const updateCategory = async ({ data,  }) => {
     if (!data?.name) {
         throw new Error("Name is undefined");
     }

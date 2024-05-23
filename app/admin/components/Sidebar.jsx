@@ -9,7 +9,7 @@ export default function Sidebar() {
             icon: <Gauge />,
         },
         {
-            name: 'jobs',
+            name: 'Jobs',
             link: '/admin/jobs',
             icon: <LayoutList />,
         },
@@ -19,8 +19,8 @@ export default function Sidebar() {
             icon: <Layers2 />,
         },
         {
-            name: 'Authors',
-            link: '/admin/authors',
+            name: 'Companies',
+            link: '/admin/companies',
             icon: <User />,
         },
     ]
