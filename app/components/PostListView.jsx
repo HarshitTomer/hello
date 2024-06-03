@@ -23,7 +23,7 @@ export default async function PostListView() {
 
 export function PostCard({ post }) {
     return <Link href={`/posts/${post?.id}`}>
-        <div className="flex flex-col gap-3 p-5 rounded">
+        <div className="flex flex-col shadow-lg border-2 border-gray-100     gap-3 p-5 rounded">
             <div className="relative">
                 <div className="absolute flex justify-end w-full p-3">
                     <CategoryCard categoryId={post?.categoryId} />
@@ -49,8 +49,9 @@ async function AuthorCard({ authorId }) {
 
 async function CategoryCard({ categoryId }) {
     const category = await getCategory(categoryId);
-    return <div className="flex gap-2 items-center bg-white bg-opacity-60 rounded-full px-2 py-1">
-        <img className="h-4 w-4 rounded-full object-cover" src={category?.iconURL} alt="" />
+    return <div className="flex shadow-sm  gap-2 items-center bg-white bg-opacity-60 rounded-full px-2 py-1">
+          <img className="h-4 w-4 borderborder-gray-400 rounded-full object-cover" src={category?.iconURL} alt="" />
+            
         <h4 className="text-xs text-gray-500">{category?.name}</h4>
     </div>
 }

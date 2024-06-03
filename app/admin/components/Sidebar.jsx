@@ -20,7 +20,7 @@ export default function Sidebar() {
         },
         {
             name: 'Authors',
-            link: '/admin/authors',
+            link: "/admin/authors",
             icon: <User />,
         },
     ]

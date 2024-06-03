@@ -1,6 +1,6 @@
 "use client"
 
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, SignInMethod, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 
@@ -27,7 +27,7 @@ export default function AuthContextProvider({ children }) {
     const handleSignInWithGoogle = async () => {
         setIsLoading(true)
         try {
-            await signInWithPopup(auth, new GoogleAuthProvider());
+            await signInWithRedirect(auth, new GoogleAuthProvider());
         } catch (error) {
             setError(error?.message)
         }

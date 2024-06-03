@@ -1,4 +1,4 @@
-import { Home, List, MessageCircle } from 'lucide-react'
+    import { Home, List, MessageCircle } from 'lucide-react'
 import LoginButton from './LoginButton'
 import AuthContextProvider from '@/lib/contexts/AuthContext'
 import Link from 'next/link';
