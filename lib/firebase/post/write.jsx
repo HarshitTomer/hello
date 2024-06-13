@@ -12,11 +12,11 @@ export const createNewPost = async ({ data, image }) => {
     if (!image) {
         throw new Error("Image is not selected");
     }
-    const imageRef = ref(storage, `posts/${data?.slug}.png`);
+    const imageRef = ref(storage, `jobs/${data?.slug}.png`);
     await uploadBytes(imageRef, image);
     const imageURL = await getDownloadURL(imageRef);
 
-    const firestoreRef = doc(db, `posts/${data?.slug}`)
+    const firestoreRef = doc(db, `jobs/${data?.slug}`)
     await setDoc(firestoreRef, {
         ...data,
         id: data?.slug,
@@ -35,12 +35,12 @@ export const updatePost = async ({ data, image }) => {
     var imageURL = data?.imageURL;
 
     if (image) {
-        const imageRef = ref(storage, `posts/${data?.slug}.png`);
+        const imageRef = ref(storage, `jobs/${data?.slug}.png`);
         await uploadBytes(imageRef, image);
         imageURL = await getDownloadURL(imageRef);
     }
 
-    const firestoreRef = doc(db, `posts/${data?.id}`);
+    const firestoreRef = doc(db, `jobs/${data?.id}`);
 
     await updateDoc(firestoreRef, {
         ...data,
@@ -53,5 +53,5 @@ export const deletePost = async (id) => {
     if (!id) {
         throw new Error("Id is required");
     }
-    await deleteDoc(doc(db, `posts/${id}`));
+    await deleteDoc(doc(db, `jobs/${id}`));
 }

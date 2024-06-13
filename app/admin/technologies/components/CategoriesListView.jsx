@@ -1,10 +1,10 @@
 "use client"
 
-import { usePosts } from "@/lib/firebase/post/read";
+import { useCategories } from "@/lib/firebase/category/read"
 import Link from "next/link"
 
-export default function PostListView() {
-    const { data, error, isLoading } = usePosts();
+export default function CategoriesListView() {
+    const { data, error, isLoading } = useCategories();
     if (isLoading) {
         return <h1>Loading...</h1>
     }
@@ -19,8 +19,8 @@ export default function PostListView() {
             <thead>
                 <tr>
                     <th className="border px-4 py-2 bg-blue-50">Sr.</th>
-                    <th className="border px-4 py-2 bg-blue-50">Image</th>
-                    <th className="border px-4 py-2 bg-blue-50">Title</th>
+                    <th className="border px-4 py-2 bg-blue-50">Icon</th>
+                    <th className="border px-4 py-2 bg-blue-50">Name</th>
                     <th className="border px-4 py-2 bg-blue-50">Slug</th>
                     <th className="border px-4 py-2 bg-blue-50">Action</th>
                 </tr>
@@ -29,11 +29,11 @@ export default function PostListView() {
                 {data?.map((item, key) => {
                     return <tr>
                         <td className="border px-4 py-2">{key + 1}</td>
-                        <td className="border px-4 py-2"> <img className="h-10" src={item?.imageURL} alt="" /> </td>
-                        <td className="border px-4 py-2">{item?.title}</td>
+                        <td className="border px-4 py-2"> <img className="h-10" src={item?.iconURL} alt="" /> </td>
+                        <td className="border px-4 py-2">{item?.name}</td>
                         <td className="border px-4 py-2">{item?.slug}</td>
                         <td className="border px-4 py-2">
-                            <Link href={`/admin/posts/form?id=${item?.id}`}>
+                            <Link href={`/admin/categories/form?id=${item?.id}`}>
                                 <button className="bg-blue-500 text-white rounded-full px-3 py-1 text-sm">Action</button>
                             </Link>
                         </td>

@@ -40,7 +40,7 @@ export default function Page() {
             {!updatePostId && <div className="flex">
                 <h3 className="text-white bg-green-500 px-4 py-2 rounded-full text-xs font-bold">Create</h3>
             </div>}
-            <h1 className="font-bold">Posts | Form</h1>
+            <h1 className="font-bold">jobs | Form</h1>
         </div>
         <section className="flex gap-5">
             <form
@@ -57,7 +57,7 @@ export default function Page() {
                     <label className="text-sm text-gray-500">Title <span className="text-red-500">*</span> </label>
                     <input
                         className="px-4 py-2 rounded-full border bg-gray-50"
-                        placeholder="Enter Title"
+                        placeholder="Enter Job Title"
                         type="text"
                         onChange={(e) => {
                             handleData('title', e.target.value)
@@ -83,10 +83,10 @@ export default function Page() {
 
                 <SelectCategoryField />
 
-                <SelectAuthorField />
+                <SelectCompanyField />
 
 
-                {data?.imageURL && <div>
+                {/* {data?.imageURL && <div>
                     <img className="h-40" src={data?.imageURL} alt="" />
                 </div>}
                 {image && <div>
@@ -104,7 +104,7 @@ export default function Page() {
                             setImage(e.target.files[0]);
                         }}
                     />
-                </div>
+                </div> */}
 
                 {error && <p className="text-red-500 text-sm">{error}</p>}
 
@@ -161,14 +161,14 @@ function SelectCategoryField() {
 }
 
 
-function SelectAuthorField() {
+function SelectCompanyField() {
     const {
         data,
         handleData,
     } = usePostForm();
     const { data: authors } = useAuthors();
     return <div className="flex flex-col gap-2">
-        <label className="text-sm text-gray-500">Authors  <span className="text-red-500">*</span> </label>
+        <label className="text-sm text-gray-500">Company  <span className="text-red-500">*</span> </label>
         <select
             className="px-4 py-2 rounded-full border bg-gray-50"
             name="authorId"
@@ -178,7 +178,7 @@ function SelectAuthorField() {
                 handleData('authorId', e.target.value)
             }}
             required>
-            <option value="">Select Author</option>
+            <option value="">Select Company</option>
             {authors && authors?.map((item) => {
                 return <option value={item?.id}>{item?.name}</option>
             })}

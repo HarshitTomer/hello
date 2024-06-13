@@ -1,17 +1,17 @@
 import { PostCard } from "@/app/components/PostListView";
 import { getCategory } from "@/lib/firebase/category/read_server";
-import { getAllPostsWithCategory } from "@/lib/firebase/post/read_server";
+import { getAlljobsWithCategory } from "@/lib/firebase/post/read_server";
 
 export default async function Page({ params }) {
     const { categoryId } = params;
-    const posts = await getAllPostsWithCategory(categoryId)
+    const jobs = await getAlljobsWithCategory(categoryId)
     return <main className="p-10">
         <div className="flex p-5 gap-3">
             <h1 className="font-bold">Categories /</h1>
             <CategoryCard categoryId={categoryId} />
         </div>
         <div className="grid grid-cols-4 gap-5">
-            {posts?.map((post, key) => {
+            {jobs?.map((post, key) => {
                 return <PostCard post={post} key={key} />
             })}
         </div>

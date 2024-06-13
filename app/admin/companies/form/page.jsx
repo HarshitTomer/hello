@@ -1,12 +1,12 @@
 "use client"
 
 import { useSearchParams } from "next/navigation";
-import { useCategoryForm } from "./contexts/CategoryFormContext";
 import { useEffect } from "react";
+import { useAuthorForm } from "./contexts/AuthorFormContext";
 
 export default function Page() {
     const searchParams = useSearchParams();
-    const updateCategoryId = searchParams.get('id')
+    const updateAuthorId = searchParams.get('id')
 
     const {
         data,
@@ -17,31 +17,33 @@ export default function Page() {
         handleCreate,
         handleUpdate,
         handleDelete,
+        image,
+        setImage,
         fetchData,
-    } = useCategoryForm();
+    } = useAuthorForm();
 
     useEffect(() => {
-        if (updateCategoryId) {
-            fetchData(updateCategoryId);
+        if (updateAuthorId) {
+            fetchData(updateAuthorId);
         }
-    }, [updateCategoryId])
+    }, [updateAuthorId])
 
 
     return <main className="w-full p-6 flex flex-col gap-3">
         <div className="flex gap-5 items-center">
-            {updateCategoryId && <div className="flex">
+            {updateAuthorId && <div className="flex">
                 <h3 className="text-white bg-orange-500 px-4 py-2 rounded-full text-xs font-bold">Update</h3>
             </div>}
-            {!updateCategoryId && <div className="flex">
+            {!updateAuthorId && <div className="flex">
                 <h3 className="text-white bg-green-500 px-4 py-2 rounded-full text-xs font-bold">Create</h3>
             </div>}
-            <h1 className="font-bold">Category | Form</h1>
+            <h1 className="font-bold">Company | Form</h1>
         </div>
         <section className="flex">
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    if (updateCategoryId) {
+                    if (updateAuthorId) {
                         handleUpdate();
                     } else {
                         handleCreate();
@@ -49,10 +51,10 @@ export default function Page() {
                 }}
                 className="flex flex-col gap-2 bg-blue-50 rounded-xl p-7">
                 <div className="flex flex-col gap-2">
-                    <label className="text-sm text-gray-500">Category Name <span className="text-red-500">*</span> </label>
+                    <label className="text-sm text-gray-500">Company Name <span className="text-red-500">*</span> </label>
                     <input
                         className="px-4 py-2 rounded-full border bg-gray-50"
-                        placeholder="Enter Category Name"
+                        placeholder="Enter Company Name"
                         type="text"
                         onChange={(e) => {
                             handleData('name', e.target.value)
@@ -62,19 +64,37 @@ export default function Page() {
                     />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="text-sm text-gray-500">Category Slug <span className="text-red-500">*</span> </label>
+                    <label className="text-sm text-gray-500">Company Email <span className="text-red-500">*</span> </label>
                     <input
                         className="px-4 py-2 rounded-full border bg-gray-50"
-                        placeholder="Enter Category Slug"
-                        type="text"
+                        placeholder="Enter Company Email"
+                        type="email"
                         onChange={(e) => {
-                            handleData('slug', e.target.value)
+                            handleData('email', e.target.value)
                         }}
-                        value={data?.slug}
+                        value={data?.email}
                         required
                     />
                 </div>
-               
+                {data?.photoURL && <div>
+                    <img className="h-40" src={data?.photoURL} alt="" />
+                </div>}
+                {image && <div>
+                    <img className="h-40" src={URL.createObjectURL(image)} alt="" />
+                </div>}
+                <div className="flex flex-col gap-2">
+                    <label className="text-sm text-gray-500">Image  </label>
+                    <input
+                        className="px-4 py-2 rounded-full border bg-gray-50"
+                        placeholder="Enter Author Slug"
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                            e.preventDefault();
+                            setImage(e.target.files[0]);
+                        }}
+                    />
+                </div>
 
                 {error && <p className="text-red-500 text-sm">{error}</p>}
 
@@ -82,13 +102,13 @@ export default function Page() {
                     type="submit"
                     disabled={isLoading || isDone}
                     className="bg-blue-500 rounded-full px-4 py-2 text-white">
-                    {isLoading ? "Loading..." : updateCategoryId ? "Update" : "Create"}
+                    {isLoading ? "Loading..." : updateAuthorId ? "Update" : "Create"}
                 </button>}
 
-                {updateCategoryId && !isDone && <button
+                {updateAuthorId && !isDone && <button
                     onClick={(e) => {
                         e.preventDefault();
-                        handleDelete(updateCategoryId);
+                        handleDelete(updateAuthorId);
                     }}
                     disabled={isLoading || isDone}
                     className="bg-red-500 rounded-full px-4 py-2 text-white">
@@ -96,7 +116,7 @@ export default function Page() {
                 </button>}
 
                 {isDone && <h3 className="text-green-500 font-bold text-center">
-                    Successfully {updateCategoryId ? "Updated" : "Created"} !
+                    Successfully {updateAuthorId ? "Updated" : "Created"} !
                 </h3>}
 
             </form>
