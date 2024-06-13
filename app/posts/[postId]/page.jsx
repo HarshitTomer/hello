@@ -24,7 +24,7 @@ export default async function Page({ params }) {
             <img className="w-full object-cover" src={post?.imageURL} alt="" />
             <div className="flex justify-between items-center">
                 <AuthorCard authorId={post?.authorId} />
-                <h5 className="text-xs text-gray-500">{post?.timestamp?.toDate()?.toLocaleDateString()}</h5>
+                <h5 className="text-xs text-gray-400">{post?.timestamp?.toDate()?.toLocaleDateString()}</h5>
             </div>
             <div dangerouslySetInnerHTML={{ __html: post?.content }}></div>
         </section>
